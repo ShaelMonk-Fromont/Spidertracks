@@ -1,16 +1,7 @@
 /*
  * Date: October 2014
  * Author: Shael Monk-Fromont
- * Purpose: Applicant Coding Problem 
- * 
- * Notes: 
- * I have not used Maven for this problem.. sorry?
- * I think the code I have written is very good in terms of robustness and scalability because 
- * it can easily be updated, the data can be quickly changed without needing to recode anything.
- * Most of the methods I have used are reasonably generic so can be reused in different ways 
- * and for different purposes within the program.
- * Where I believe my code is least robust is in dealing with user input, unexpected input can cause unusual behaviour.
- * 
+ * Purpose: pathfinding on a directed, weighted graph using breadth first search
  * 
  */
 
@@ -21,16 +12,16 @@ public class pathFinder_BFS {
 
 	static String[] nodeArray = new String[]{"A", "B", "C", "D", "E", "F", "G", "H", "I", "J"}; 	
 	static int[][] weightMatrix = new int[][]{
-		{0,	12, 0, 	19, 20, 0, 	16, 0, 	0, 	0},
-		{0, 0, 	5, 	13, 0, 	0,	0, 	0, 	15, 0},
-		{0, 0, 	0, 	5, 	0, 	0,	0, 	0, 	0, 	0},
-		{0, 0, 	0, 	0, 	7, 	0, 	0, 	0, 	0, 	0},
-		{0, 0, 	0, 	0, 	0, 	5, 	0, 	0, 	0, 	0},
-		{5, 0, 	0, 	0, 	0, 	0, 	0, 	0, 	0, 	0},
-		{0, 0, 	0, 	0, 	0, 	11,	0, 	0, 	0, 	0},
-		{4, 19, 0, 	0, 	0, 	0, 	6, 	0, 	0, 	0},
-		{0, 0, 	0, 	0, 	0, 	0, 	0, 	21, 0, 	10},
-		{0, 7, 	15, 0, 	0, 	0, 	0, 	0, 	0, 	0}}; 
+		{0,	12, 	0, 	19, 	20, 	0, 	16, 	0, 	0, 	0},
+		{0,	0, 	5, 	13, 	0, 	0,	0, 	0, 	15, 	0},
+		{0, 	0, 	0, 	5, 	0, 	0,	0, 	0, 	0, 	0},
+		{0, 	0, 	0, 	0, 	7, 	0, 	0, 	0, 	0, 	0},
+		{0, 	0, 	0, 	0, 	0, 	5, 	0, 	0, 	0, 	0},
+		{5, 	0, 	0, 	0, 	0, 	0, 	0, 	0, 	0, 	0},
+		{0, 	0, 	0, 	0, 	0, 	11,	0, 	0, 	0, 	0},
+		{4, 	19, 	0, 	0, 	0, 	0, 	6, 	0, 	0, 	0},
+		{0, 	0, 	0, 	0, 	0, 	0, 	0, 	21, 	0, 	10},
+		{0, 	7, 	15, 	0, 	0, 	0, 	0, 	0, 	0, 	0}}; 
 
 	//---------------------------------------
 	//Calculate Distances
